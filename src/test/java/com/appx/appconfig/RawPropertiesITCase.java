@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 import com.appx.HierarchicalPropertyPlaceholderConfigurer;
 
 
-@SpringApplicationConfiguration(classes = {AppConfigServiceApplicationContext.class})
+@SpringApplicationConfiguration(classes = {AppConfigServiceBoot.class})
 @WebIntegrationTest
 public class RawPropertiesITCase extends AbstractTestNGSpringContextTests {
 
@@ -39,13 +39,13 @@ public class RawPropertiesITCase extends AbstractTestNGSpringContextTests {
         new HierarchicalPropertyPlaceholderConfigurer("http://localhost:" + port
             + "/appconfig/env/hosts.properties");
     config.setPassword("secret");
-    
+
   }
 
   @Test
   public void testFetchHostPropertiesByHostName() throws Exception {
-    
-    config.setHostName("remote-host"); //host setting will override env setting
+
+    config.setHostName("remote-host"); // host setting will override env setting
     config.init();
 
     String value = config.getProperty("property.1.name", String.class);
@@ -57,11 +57,11 @@ public class RawPropertiesITCase extends AbstractTestNGSpringContextTests {
     Assert.assertEquals(value, "value2");
 
   }
-  
+
   @Test
   public void testFetchHostPropertiesByEnvironmentQAOnLocalClasspath() throws Exception {
-        
-    config.setHostName("does-not-exist-host"); //can't be found, will default to env
+
+    config.setHostName("does-not-exist-host"); // can't be found, will default to env
     config.init();
 
     String value = config.getProperty("property.1.name", String.class);
@@ -73,12 +73,12 @@ public class RawPropertiesITCase extends AbstractTestNGSpringContextTests {
     Assert.assertEquals(value, "value2");
 
   }
-  
+
   @Test
   public void testFetchHostPropertiesByEnvironmentQAOnRemote() throws Exception {
-        
-    config.setEnvironmentName("DEV"); //can't be found, will default to env
-    config.setHostName("does-not-exist-host"); //can't be found, will default to env
+
+    config.setEnvironmentName("DEV"); // can't be found, will default to env
+    config.setHostName("does-not-exist-host"); // can't be found, will default to env
     config.init();
 
     String value = config.getProperty("property.1.name", String.class);

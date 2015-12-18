@@ -89,7 +89,7 @@
 						</goals>
 						<configuration>
 						
-						<mainClass>com.appx.appconfig.AppConfigServiceApplicationContext</mainClass>
+						<mainClass>com.appx.appconfig.AppConfigServiceBoot</mainClass>
 						</configuration>
 					</execution>
 				</executions>
