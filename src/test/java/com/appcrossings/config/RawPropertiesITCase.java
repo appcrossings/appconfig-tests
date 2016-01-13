@@ -1,4 +1,4 @@
-package com.appx.appconfig;
+package com.appcrossings.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.appx.HierarchicalPropertyPlaceholderConfigurer;
+import com.appx.appconfig.AppConfigServiceBoot;
 
 
 @SpringApplicationConfiguration(classes = {AppConfigServiceBoot.class})

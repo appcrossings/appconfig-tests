@@ -4,9 +4,9 @@
 	<artifactId>appconfig-tests</artifactId>
 	<name>Integration Tests for AppConfig</name>
 	<scm>
-		<url>https://bitbucket.org/appcrossings/appconfig-tests</url>
-		<connection>scm:git:https://bitbucket.org/appcrossings/appconfig-tests</connection>
-		<developerConnection>scm:git:https://bitbucket.org/appcrossings/appconfig-tests</developerConnection>
+		<url>https://github.com/appcrossings/appconfig-tests</url>
+		<connection>scm:git:https://github.com/appcrossings/appconfig-tests</connection>
+		<developerConnection>scm:git:https://github.com/appcrossings/appconfig-tests</developerConnection>
 	</scm>
 	<dependencies>
 		<dependency>
@@ -42,7 +42,7 @@
 		</plugins>
 	</build>
 	<parent>
-		<groupId>com.appx</groupId>
+		<groupId>com.appcrossings</groupId>
 		<artifactId>appconfig-pom</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
