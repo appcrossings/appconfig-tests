@@ -25,6 +25,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.3.2.RELEASE</version>
 				<configuration>
 					<mainClass>com.appcrossings.config.AppConfigServiceBoot</mainClass>
 				</configuration>

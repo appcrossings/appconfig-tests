@@ -19,7 +19,7 @@ public class IntegrationTestApplicationContext {
   public static HierarchicalPropertyPlaceholderConfigurer buildConfig() throws Exception {
     HierarchicalPropertyPlaceholderConfigurer config =
         new HierarchicalPropertyPlaceholderConfigurer(
-            "http://localhost:8888/config/env/hosts.properties");
+            "http://localhost:8889/config/env/hosts.properties");
     config.setPassword("secret");
     return config;
   }
