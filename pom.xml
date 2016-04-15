@@ -12,12 +12,12 @@
 		<dependency>
 			<groupId>com.appcrossings.config</groupId>
 			<artifactId>appconfig-client</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.appcrossings.config</groupId>
 			<artifactId>appconfig-service</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -56,6 +56,7 @@
 	<parent>
 		<groupId>com.appcrossings.config</groupId>
 		<artifactId>appconfig-pom</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
+	<version>1.0.0</version>
 </project>
