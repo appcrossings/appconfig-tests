@@ -5,14 +5,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.appcrossings.config.HierarchicalPropertyPlaceholderConfigurer;
+import com.appcrossings.config.spring.ConfigrdPropertyPlaceholderConfigurer;
 
 @ContextConfiguration(classes = {IntegrationTestApplicationContext.class})
 public class RawPropertiesITCase extends AbstractTestNGSpringContextTests {
 
   @Autowired
-  private HierarchicalPropertyPlaceholderConfigurer config;
+  private ConfigrdPropertyPlaceholderConfigurer config;
 
   @Autowired
   private SampleClass sample;
@@ -30,7 +29,7 @@ public class RawPropertiesITCase extends AbstractTestNGSpringContextTests {
 
     config.setHostName("remote-host");
     config.setEnvironment("QA");
-    config.setSearchClasspath(false);
+    config.traverseClasspath(false);
     config.reload();
 
     Assert.assertEquals(config.getProperty("property.1.name", String.class), "value1");
@@ -43,7 +42,7 @@ public class RawPropertiesITCase extends AbstractTestNGSpringContextTests {
 
     config.setHostName("not-exists-remote-host");
     config.setEnvironment("QA");
-    config.setSearchClasspath(false);
+    config.traverseClasspath(false);
     config.reload();
 
     Assert.assertEquals(config.getProperty("property.1.name", String.class), "custom");
@@ -61,7 +60,7 @@ public class RawPropertiesITCase extends AbstractTestNGSpringContextTests {
 
     config.setHostName("remote-host");
     config.setEnvironment("QA");
-    config.setSearchClasspath(false);
+    config.traverseClasspath(false);
     config.reload();
 
     Assert.assertNull(config.getProperty("property.5.name", String.class));
@@ -77,7 +76,7 @@ public class RawPropertiesITCase extends AbstractTestNGSpringContextTests {
 
     config.setHostName("remote-host");
     config.setEnvironment("QA");
-    config.setSearchClasspath(true);
+    config.traverseClasspath(true);
     config.reload();
 
     Assert.assertNotNull(config.getProperty("property.5.name", String.class));

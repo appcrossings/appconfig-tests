@@ -1,26 +1,24 @@
 package com.appcrossings.configtest;
 
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.IntegrationTest;
-import org.springframework.boot.test.WebIntegrationTest;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import com.appcrossings.config.spring.ConfigrdPropertyPlaceholderConfigurer;
 
-import com.appcrossings.config.HierarchicalPropertyPlaceholderConfigurer;
-
-@ContextConfiguration(classes = {IntegrationTestApplicationContext.class})
-@IntegrationTest
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = {IntegrationTestApplicationContext.class})
 public class EnvironmentCascadeITCase extends AbstractTestNGSpringContextTests {
 
   @Autowired
-  private HierarchicalPropertyPlaceholderConfigurer config;
+  private ConfigrdPropertyPlaceholderConfigurer config;
 
   @Test
   public void testFetchHostPropertiesByEnvironmentQAOnLocalClasspath() throws Exception {
-    
+
     config.setHostName("does-not-exist-host");
     config.setEnvironment("QA");
     config.reload();
@@ -37,7 +35,7 @@ public class EnvironmentCascadeITCase extends AbstractTestNGSpringContextTests {
 
   @Test
   public void testFetchHostPropertiesByEnvironmentQAOnRemote() throws Exception {
-    
+
     config.setHostName("does-not-exist-host");
     config.setEnvironment("DEV");
     config.reload();
@@ -51,5 +49,5 @@ public class EnvironmentCascadeITCase extends AbstractTestNGSpringContextTests {
     Assert.assertEquals(value, "value2");
 
   }
- 
+
 }
